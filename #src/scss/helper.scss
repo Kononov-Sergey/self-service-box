@@ -1,0 +1,19 @@
+// convert px to rem
+@function rem($value) {
+  $remValue: calc($value / $deafaultFontSize) + rem;
+  @return $remValue;
+}
+// fonts
+@import url("https://fonts.googleapis.com/css?family=Play:regular,700");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+$deafaultFontWhiteColor: #ffffff;
+$deafaultFontDarkColor: #000;
+$deafaultFontSize: 16px;
+// main colors
+$mainDarkBlueColor: #1b6eb8;
+$mainBlueColor: #0075ff;
+$mainWhiteColor: #f5f8fa;
+$mainCyanColor: #b2dbff;
+// width
+$maxWidthDesktop: rem(1200px);

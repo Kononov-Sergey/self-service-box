@@ -1,0 +1,393 @@
+@import "helper.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans";
+  font-size: $deafaultFontSize;
+}
+a {
+  transition: 0.4s ease-in-out;
+  font-family: "Open Sans";
+  text-decoration: none;
+  color: $deafaultFontWhiteColor;
+}
+
+li {
+  list-style: none;
+}
+
+.default-btn {
+  font-family: "Play";
+  line-height: rem(16px);
+  font-size: rem(14px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: rem(0.75px);
+  padding: rem(18px) rem(25px);
+  min-width: rem(240px);
+  min-height: rem(60px);
+  background-color: $mainDarkBlueColor;
+  color: $deafaultFontWhiteColor;
+  border: none;
+  border-radius: rem(6px);
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+  &:hover {
+    background-color: $mainBlueColor;
+    transform: scale(1.1);
+  }
+}
+
+.title {
+  font-family: "Play";
+  width: fit-content;
+  font-weight: 700;
+  font-size: rem(24px);
+  line-height: rem(58px);
+  position: relative;
+  z-index: 1;
+  &::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: rem(10px);
+    left: 0;
+    bottom: rem(17px);
+    background-color: $mainCyanColor;
+  }
+}
+
+.card {
+  font-family: "Play";
+  padding: rem(10px) rem(30px);
+  margin-bottom: rem(10px);
+  border-radius: rem(6px);
+  background-color: $mainWhiteColor;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: 0.3s all ease-out;
+  cursor: pointer;
+  position: relative;
+
+  &.ev {
+    display: none;
+  }
+  &:not(:last-child) {
+    margin-right: rem(10px);
+  }
+  &:hover {
+    background-color: $mainCyanColor;
+  }
+  &.active {
+    background-color: $mainCyanColor;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &:active {
+    background-color: $mainCyanColor;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
+  }
+  // card__name
+  &__name {
+    font-size: rem(18px);
+    font-weight: 700;
+  }
+  // card__price{
+  &__price {
+    margin-top: rem(10px);
+    display: block;
+    // float: right;
+  }
+  sub {
+    font-style: italic;
+    font-weight: 500;
+  }
+  &.sale {
+    &::after {
+      position: absolute;
+      content: "ХИТ!";
+      color: white;
+      font-size: 12px;
+      transform: rotate(20deg);
+      line-height: 40px;
+      right: -14px;
+      top: -12px;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      background-color: rgb(255, 0, 0);
+      box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    }
+  }
+}
+
+.container {
+  max-width: $maxWidthDesktop;
+  margin: 0 auto;
+}
+
+.header {
+  background-image: url(../img/header-bg.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 750px;
+  margin-bottom: rem(90px);
+
+  // .header__inner
+  &__inner {
+    z-index: 1000;
+    color: $mainWhiteColor;
+    position: fixed;
+    width: 100%;
+    background-color: transparent;
+    transition: 0.4s ease-in-out;
+  }
+}
+
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: rem(116px);
+}
+.logo-image {
+  // def h and w !
+}
+.nav {
+}
+.menu {
+  display: flex;
+  align-items: center;
+
+  &__item:not(:last-child) {
+    margin-right: rem(50px);
+  }
+
+  // .menu__item
+  &__item {
+    cursor: pointer;
+    padding: rem(5px);
+    a {
+      font-size: rem(16px);
+    }
+  }
+  .material-icons-outlined {
+    margin-right: rem(7px);
+    transform: translateY(rem(2px));
+  }
+}
+
+.main-header {
+  padding-top: rem(116px + 73px);
+  text-align: center;
+  // .main-header__article
+  &__article {
+    font-family: "Play";
+    font-weight: 700;
+    font-size: rem(48px);
+    line-height: rem(58px);
+    color: $deafaultFontWhiteColor;
+    margin-bottom: rem(20px);
+  }
+
+  // .main-header__text
+  &__text {
+    max-width: rem(700px);
+    margin: 0 auto;
+    color: $deafaultFontWhiteColor;
+    line-height: rem(20px);
+    margin-bottom: rem(30px);
+  }
+
+  // .main-header__button
+  &__button {
+    margin-bottom: rem(43px);
+  }
+
+  // .main-header__advantages
+  &__advantages {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .material-icons-outlined {
+      font-size: rem(42px);
+      color: $mainDarkBlueColor;
+    }
+    li {
+      color: $deafaultFontWhiteColor;
+    }
+  }
+}
+
+.steps {
+  margin-bottom: rem(50px);
+  // .steps__title
+  &__title {
+    margin-bottom: rem(45px);
+    margin-left: rem(119px);
+  }
+  &__inner {
+    color: $deafaultFontWhiteColor;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+}
+.container_steps {
+  max-width: rem(1431px);
+}
+
+.left-content {
+  background-color: $mainDarkBlueColor;
+  padding: rem(262px) rem(52px) rem(269px) rem(119px);
+  max-width: rem(550px);
+
+  // .left-content__title
+  &__title {
+    color: $deafaultFontWhiteColor;
+    font-family: "Play";
+    font-size: rem(64px);
+    line-height: rem(80px);
+    max-width: rem(330px);
+    margin-bottom: rem(50px);
+  }
+
+  // .left-content__text
+  &__text {
+    max-width: rem(364px);
+    font-size: rem(20px);
+    line-height: rem(31px);
+  }
+}
+.right-content {
+  padding: rem(100px) 0 0 rem(45px);
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 1;
+  background-image: url(../img/steps_bg.jpg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  max-height: rem(600px);
+  &::before {
+    z-index: -1;
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+  }
+}
+.step-box {
+  max-height: rem(116px);
+  min-width: rem(154px);
+  margin: 0 rem(30px) rem(85px) 0;
+  padding-left: rem(20px);
+  border-left: 2px solid $mainDarkBlueColor;
+
+  // .step-box__num
+  &__num {
+    font-size: rem(20px);
+    line-height: rem(31px);
+    margin-bottom: rem(18px);
+  }
+
+  // .step-box__text
+  &__text {
+    font-size: rem(18px);
+    line-height: rem(28px);
+    max-width: rem(234px);
+  }
+}
+
+.services {
+  // .services__title
+  margin-bottom: rem(50px);
+  &__title {
+    margin-bottom: rem(30px);
+  }
+}
+
+.calculator {
+  display: flex;
+  justify-content: space-evenly;
+
+  .material-icons-outlined {
+    transform: translateY(5px);
+    margin-right: rem(5px);
+    color: $mainDarkBlueColor;
+  }
+
+  // calculator__section-title
+  &__section-title {
+    z-index: 1;
+    font-size: rem(20px);
+    margin-bottom: rem(5px);
+  }
+}
+
+.calculator__section-title_toggle {
+  cursor: pointer;
+  .material-icons-outlined {
+    transition: 0.3s all ease;
+    line-height: rem(16px);
+    font-size: rem(36px);
+    transform: translateY(rem(10px));
+    &.active {
+      transform: rotate(90deg) translateX(rem(10px));
+    }
+  }
+}
+
+.calculator-section {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: rem(365px);
+  margin-bottom: rem(30px);
+  transition: 0.3s all ease-in-out;
+  &.unable {
+    max-height: 0;
+    opacity: 0;
+  }
+}
+
+.total {
+  &__result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .material-icons-outlined {
+      font-size: rem(36px);
+      transform: translateY(0px);
+    }
+    h1 {
+      font-size: rem(32px);
+      margin-right: rem(5px);
+    }
+    p {
+      font-size: rem(36px);
+      sub {
+        font-style: italic;
+      }
+    }
+  }
+}
